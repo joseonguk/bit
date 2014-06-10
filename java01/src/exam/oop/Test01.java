@@ -9,7 +9,8 @@ import java.util.Scanner;
 // 학생의 성적 데이터를 표현하는 데이터 타입 정의
 // 새로운 데이터 타입의 이름은 Score
 // => 개발자가 임의적으로 정의하는 데이터 타입 => 사용자 정의 데이터 타입 (C에서는 구조체)
-class Score {
+
+ 	class Score {
 	// Score가 준비하는 메모리를 선언
 	String name;
 	int kor;
