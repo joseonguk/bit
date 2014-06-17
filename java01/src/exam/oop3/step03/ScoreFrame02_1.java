@@ -1,0 +1,109 @@
+package exam.oop3.step03;
+
+/* 성적 등록 폼 만들기
+ * - panel 사용
+ *   > 여러 개의 UI 컴포넌트를 묶을 때 사용하는 윈도우
+ */
+
+import java.awt.Button;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Frame;
+import java.awt.Label;
+import java.awt.Panel;
+import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+public class ScoreFrame02_1 extends Frame{
+  private TextField tfName = new TextField(20);
+  private TextField tfKor = new TextField(5);
+  private TextField tfEng = new TextField(5);
+  private TextField tfMath = new TextField(5);
+  
+  ScoreDao scoreDao;
+  
+  
+	public ScoreFrame02_1(){
+	  
+    this.setTitle("비트 성적관리 시스템");
+    this.setSize(400, 300);
+    
+    this.addWindowListener(new WindowAdapter() {
+      public void windowClosing(WindowEvent e) {
+        System.out.println("windowClosing");
+        System.exit(0);
+      }
+    });
+    
+	  this.setLayout(new FlowLayout(FlowLayout.LEFT));
+	  
+	  this.add(createRowPanel("이름", tfName));
+	  this.add(createRowPanel("국어", tfKor));
+	  this.add(createRowPanel("영어", tfEng));
+	  this.add(createRowPanel("수학", tfMath));
+	  
+	  Panel toolbar = new Panel(new FlowLayout(FlowLayout.LEFT));
+	  
+	  
+	  Button btn = new Button("추가");
+    btn.setPreferredSize(new Dimension(80, 30));
+    btn.addActionListener(new ActionListener() {
+
+      public void actionPerformed(ActionEvent e) {
+        Score score = new Score();
+        score.setName(tfName.getName());
+        //score.kor = Integer.parseInt(tfKor.getText());
+        //score.eng = Integer.parseInt(tfEng.getText());
+        //score.math = Integer.parseInt(tfMath.getText());
+        score.setKor(Integer.parseInt(tfKor.getText()));
+        score.setEng(Integer.parseInt(tfEng.getText()));
+        score.setMath(Integer.parseInt(tfMath.getText()));
+        
+        scoreDao.insert(score);
+        
+        clearForm();
+        System.out.println(score.getTotal());
+        
+      }
+    });
+    
+    toolbar.add(btn);
+    
+    
+    this.add(toolbar);
+    
+	}
+	
+	private Panel createRowPanel(String title, Component comp){    
+	  // (String title, TextField comp) 이렇게도 가능함
+	  // 위에 처럼 쓴 이유는 component의 하위 모든 걸 받을 수 있게 하기 위해서
+	  Panel panel = new Panel(new FlowLayout(FlowLayout.LEFT));
+    panel.setPreferredSize(new Dimension(300, 25));
+    
+	  
+    Label label = new Label(title);
+    label.setPreferredSize(new Dimension(50, 25));
+    panel.add(label);
+
+    panel.add(comp);
+    
+    return panel;
+	}
+
+  public void setScoreDao(ScoreDao scoreDao) {
+    this.scoreDao = scoreDao;
+    
+  }
+
+  private void clearForm() {
+    // 성적 입력 폼 초기화
+    tfName.setText("");
+    tfKor.setText("");
+    tfEng.setText("");
+    tfMath.setText("");
+  }
+}

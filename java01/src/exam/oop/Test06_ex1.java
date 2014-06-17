@@ -32,7 +32,8 @@ public class Test06_ex1 {
 		// - new 명령을 통해 인스턴스를 생성
 		//new A();
 		// - 클래스 변수나 메서드 사용
-		//System.out.println(A.value);
+		System.out.println("출력");
+		System.out.println(A.value);
 	}
 
 }

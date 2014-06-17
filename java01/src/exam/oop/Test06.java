@@ -6,7 +6,6 @@
  * 	 2) bytecode(클래스파일)를 검증한다.
  * 	 3) 바이트 코드를 Method Area 에 로딩한다.
  * 				클래스 변수(static 변수)및  클래스 블록(static 변수)을 순차적으로 실행한다.
- * 				
  * 	 4) 로딩된 바이트 코드에서  main() 메서드를 찾아 호출한다.
  */
 
@@ -15,10 +14,12 @@ package exam.oop;
 public class Test06 {
 	
 	//클래스 변수
+	// - 모든 인스턴스들이 공유하는 데이터 보관 
 	static int a = 20;
 	
 	
 	// 스태틱 블록
+	// - 생성자처럼 클래스 변수를 초기화 하는 작업
 	static {
 		System.out.println(a);
 		//System.out.println(b);

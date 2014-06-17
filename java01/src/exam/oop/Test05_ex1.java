@@ -1,3 +1,4 @@
+
 /** 자바의 메모리 관리
  * - 4가지 영역으로 데이터를 관리한다.
  * 1) Method Area: 클래스가 놓여진다. 클래스 변수.
@@ -48,7 +49,7 @@ public class Test05_ex1 {
 	}
 	
 	static void m2(Student s) {
-		s.name = s.name + " ㅋㅋ";
+		s.name = s.name + "ㅋㅋ";
 		s.age = s.age + 15;
 	}
 }

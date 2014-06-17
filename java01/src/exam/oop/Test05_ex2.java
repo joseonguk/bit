@@ -23,6 +23,7 @@ public class Test05_ex2 {
 		String s2 = new String("홍길동");
 		String s3 = "홍길동";		// 상수 풀 영역에 생성
 		String s4 = "홍길동";		// 기존 상수 풀 영역에 생성된 객체를 가리킴.
+		String s5 = "홍길동";
 		
 		if (s1 == s2) {		// 주소가 다르다
 			System.out.println("s1 == s2");
@@ -32,10 +33,12 @@ public class Test05_ex2 {
 			System.out.println("s3 == s4");
 		}
 		
-		String s5 = s1.intern();
+		String s6 = s1.intern();
 		
-		if (s3 == s5) {
-			System.out.println("s3 == s5");
+		
+		System.out.println(s6 == s4);
+		if (s3 == s6) {
+			System.out.println("s3 == s6");
 		}
   }
 }

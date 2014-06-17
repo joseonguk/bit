@@ -39,7 +39,7 @@ public class Test01_ex2 {
 
 		Scanner sc = new Scanner(System.in);
 	
-		Address a;
+		//Address a;
 		for(int i = 0; i < ad.length; i++){
 			ad[i] = inputAddress(sc);
 		
