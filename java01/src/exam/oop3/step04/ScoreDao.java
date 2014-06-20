@@ -6,9 +6,11 @@
 
 package exam.oop3.step04;
 
+import java.util.ArrayList;
+
 public class ScoreDao {
-	Score[] scores = new Score[100];
-	int size;
+	ArrayList<Score> scores = new ArrayList<Score>();
+	//int size;
 	int cursor;
 	
 	public ScoreDao() {
@@ -16,28 +18,35 @@ public class ScoreDao {
 	}
 
 	public void insert(Score score) {
-		if (size < scores.length){
-			scores[size++] = score;
-			cursor = size;
-		}
+		//if (size < scores.size()){
+			scores.add(score);
+			cursor = scores.size();
+			//cursor = size;
+		//}
   }
 	
 	public Score nextScore() {
-    if (cursor >= size || cursor >= scores.length - 1) 
+    //if (cursor >= scores.size() || cursor >= scores.size() - 1) 
+    if (cursor >= scores.size()-1)
       return null;
     
-    return scores[++cursor];
+    return scores.get(++cursor);
   }
   
   public Score previousScore() {
     if (cursor <= 0) 
       return null;
     
-    return scores[--cursor];
+    return scores.get(--cursor);
   }
 	
-	public Score[] toArray() {
+  /*
+	public ArrayList<Score> toArray() {
 		return this.scores;
 	}
-	
+	*/
+  
+  public Object[] toArray() {
+    return this.scores.toArray();
+  }
 }

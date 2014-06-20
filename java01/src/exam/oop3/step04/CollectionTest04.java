@@ -8,7 +8,7 @@ import java.util.Iterator;
 import java.util.Map.Entry;
 import java.util.Set;
 
-/* Collertion API
+/* Collection API
  * - 값 목록을 다루는 객체
  * 
  * Collection 인터페이스를 구현한 객체로부터 값을 꺼내거나, 배열로부터 값을 꺼낼 때 

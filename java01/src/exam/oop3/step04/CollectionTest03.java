@@ -8,7 +8,7 @@ import java.util.Iterator;
 import java.util.Map.Entry;
 import java.util.Set;
 
-/* Collertion API
+/* Collection API
  * - 값 목록을 다루는 객체
  * 
  * Map의 도우미 Iterator 소개
@@ -36,6 +36,7 @@ public class CollectionTest03 {
   
   public static void displayValuesFromMap(HashMap map){
     System.out.println("---------------------------");
+    
     Iterator iterator = map.values().iterator();
     
     String vlaue;
@@ -54,6 +55,7 @@ public class CollectionTest03 {
     while(iterator.hasNext()){
       key = (String)iterator.next();
       System.out.println(key + " : " + map.get(key));
+      System.out.println(key);
     }
   }
   

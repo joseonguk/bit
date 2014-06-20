@@ -8,18 +8,17 @@ import java.util.Iterator;
 import java.util.Map.Entry;
 import java.util.Set;
 
-/* Collertion API
+/* Collection API
  * - 값 목록을 다루는 객체
  * 
- * Collection 인터페이스를 구현한 객체로부터 값을 꺼내거나, 배열로부터 값을 꺼낼 때 
- * - for(타입 변수 : 컬렉션 또는 배열 객체) {
- *   }
+ * Generic
+ * - 넣고 뺄 데이터의 타입을 지정할 수 있다.
+ *   => 값을 꺼낼 때 형변환 할 필요가 없다
+ *   => 값을 넣을 때 지정된 타입만 넣을 수 있다. 넣을 값의 데이터 타입을 제한
  */
 public class CollectionTest05 {
   public static void main(String[] args) {
     HashMap<String,String> map = new HashMap();       // 데이터를 순서에 상관없이 관리한다.
-    // 순서가 중요하다면은 set을 쓰면 안됨
-    // 순서를 신경쓸거라면 array를 써야됨
     
     map.put("1010", "홍길동");
     map.put("2020", "임꺽정");;
@@ -30,7 +29,6 @@ public class CollectionTest05 {
     displayKeyFromMap(map);
     displayValuesFromMap(map);
     
-   
   }
   
   public static void displayValuesFromMap(HashMap<String,String> map){
@@ -51,11 +49,8 @@ public class CollectionTest05 {
   public static void displayEntryFromMap(HashMap<String,String> map){
     
     System.out.println("---------------------------");
-    Entry entry;
-    for (Object obj : map.entrySet()){
-      entry = (Entry)obj;
+    for (Entry entry : map.entrySet()){
       System.out.println(entry.getKey() +" : " + entry.getValue());
     }
-    
   }
 }

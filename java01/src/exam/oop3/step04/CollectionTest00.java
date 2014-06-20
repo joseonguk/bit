@@ -2,7 +2,7 @@ package exam.oop3.step04;
 
 import java.util.ArrayList;
 
-/* Collertion API
+/* Collection API
  * - 값 목록을 다루는 객체
  * 
  * ArrayList 
