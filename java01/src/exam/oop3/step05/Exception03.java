@@ -11,6 +11,7 @@ public class Exception03 {
     try{
       // 청소를 수행하다가 변기에 똥 묻은 경우가 발생되다.
       throw new Throwable("변기에 똥 묻다.");
+      //System.out.println("여기나옴");
     } catch (Throwable e){
       System.out.println(e.getMessage());
       System.out.println("닦는다.");

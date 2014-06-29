@@ -3,6 +3,7 @@ package exam.oop3.step05;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 /* Character Stream : 입출력 시 유니코드 변환을 자동으로 수행
  * Binary Stream : 변환없이 바이트 데이터를 그대로 읽고 쓴다.
@@ -14,12 +15,28 @@ public class File06In {
   // - 읽고 쓸 때 변환 처리를 하지 않는다. 순수하게 바이트 그대로 읽고 쓴다.
   public static void main(String[] args) throws IOException {
     FileInputStream in = new FileInputStream("file04.txt");
+    InputStreamReader in2 = new InputStreamReader(in, "UTF-8");
+    
     
     int b;
-    while((b = in.read()) != -1) {
+    System.out.println(in2.getEncoding());
+    while((b = in2.read()) != -1) {
+      System.out.println((char)b);
       // toHexString 16진수로
-      System.out.println(Integer.toHexString(b));
+      //System.out.println(Integer.toHexString(b));
     }
+    System.out.println();
+    
+    
+    /*
+    int c;
+    //System.out.println(in2.getEncoding());
+    while((c = in.read()) != -1) {
+      //System.out.print((char)c);
+      // toHexString 16진수로
+      System.out.println(Integer.toHexString(c));
+    }
+    */
     
     in.close();
   }

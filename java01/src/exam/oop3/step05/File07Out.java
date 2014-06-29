@@ -39,12 +39,13 @@ public class File07Out {
     
     /* 1) 마지막 바이트만 출력되기 때문에 데이터가 정확하게 저장되지 않는다 */
     /*
-     * out.write(kor);            // 마지막 1바이트만 출력
-     * out.write(eng);
-     * out.write(math);
+     out.write(kor);            // 마지막 1바이트만 출력
+     out.write(eng);
+     out.write(math);
      */
     
     /* 2) 비트 이동 연산자를 통해 모든 바이트를 정확하게 저장한다 */
+    
     out.write(kor >> 24);       // 첫번째 바이트
     out.write(kor >> 16);       // 두번째 바이트
     out.write(kor >> 8);        // 세번째 바이트
@@ -59,6 +60,8 @@ public class File07Out {
     out.write(math >> 16);
     out.write(math >> 8);
     out.write(math);
+    
+    
     
     out.close();
   }

@@ -2,7 +2,7 @@
  * - 성적 정보를 표현하는 역할 => Value Object(VO)
  */
 
-package exam.oop3.step05;
+package exam.jdbc.step01;
 
 import java.io.Serializable;
 
@@ -15,13 +15,14 @@ import java.io.Serializable;
 
 public class Score implements Serializable{
   private static final long serialVersionUID = 1L;
-  //Score가 준비하는 메모리를 선언
-	private String name;
+
+  private int no;
+  private String name;
 	private int kor;
 	private int eng;
 	private int math;
-	private int total;
-	private float average;
+	transient private int total;
+	transient private float average;
 	
 	public Score(){}
 	
@@ -85,6 +86,14 @@ public class Score implements Serializable{
 
   public int getMath() {
     return math;
+  }
+
+  public int getNo() {
+    return no;
+  }
+
+  public void setNo(int no) {
+    this.no = no;
   }
 	
 	

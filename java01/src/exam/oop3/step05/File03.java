@@ -22,7 +22,7 @@ public class File03 {
     
     dispalyDirect(f);
     
-    //dispalyDirectory(f);
+    dispalyDirectory(f);
     
    /* 
     try {

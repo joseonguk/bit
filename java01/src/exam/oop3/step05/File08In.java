@@ -11,7 +11,7 @@ public class File08In {
     
     Score score = (Score)in2.readObject();
     
-    score.compute();
+    //score.compute();
     
     in2.close();
     in.close();

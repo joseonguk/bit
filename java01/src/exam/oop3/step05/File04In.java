@@ -15,8 +15,8 @@ public class File04In {
     int readSize = 0;
     // 3번부터 5개까지(0번부터시작)
     readSize = in.read(buf, 3, 5);
-    //System.out.print(buf);
-    System.out.println(buf[13]);
+    System.out.print(buf);
+    //System.out.println(buf[13]);
     
     in.close();
   }

@@ -34,7 +34,10 @@ public class File08Out {
     FileOutputStream out = new FileOutputStream("file08.dat");
     ObjectOutputStream out2 = new ObjectOutputStream(out);
     
+    // ObjectOutputStream은 write로 쓰는게 아니라 writeObject를 써야한다
     out2.writeObject(score);
+    
+    
     
     out2.close();
     out.close();
