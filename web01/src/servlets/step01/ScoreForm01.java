@@ -10,11 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/score/updateform1")
-public class ScoreUpdateForm extends HttpServlet{
+//@WebServlet("/score/form")
+public class ScoreForm01 extends HttpServlet{
   private static final long serialVersionUID = 1L;
   DbConnectionPool dbConnectionPool;
-  ScoreDao scoreDao;
+  ScoreDao01 scoreDao;
   
   @Override
   public void init(ServletConfig config) throws ServletException {
@@ -25,7 +25,7 @@ public class ScoreUpdateForm extends HttpServlet{
           "com.mysql.jdbc.Driver",
           "jdbc:mysql://localhost:3306/bitdb", 
           "bit", "1111");
-      scoreDao = new ScoreDao();
+      scoreDao = new ScoreDao01();
       scoreDao.setDbConnectionPool(dbConnectionPool);
     } catch(Exception e) { 
       e.printStackTrace();
@@ -38,24 +38,24 @@ public class ScoreUpdateForm extends HttpServlet{
     
     dbConnectionPool.closeAll();
   }
-
+  
   @Override
-  protected void doGet(HttpServletRequest request, HttpServletResponse response)
+  protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     
+    request.setCharacterEncoding("UTF-8");
     Score score = new Score();
-    score.setNo(Integer.parseInt(request.getParameter("no")));
+    
     score.setName(request.getParameter("name"));
     score.setKor(Integer.parseInt(request.getParameter("kor")));
     score.setEng(Integer.parseInt(request.getParameter("eng")));
     score.setMath(Integer.parseInt(request.getParameter("math")));
     
     try{
-      scoreDao.update(score);
+      scoreDao.insert(score);
       
       response.setContentType("text/html; charset=UTF-8"); 
       PrintWriter out = response.getWriter();
-      
       
       out.println("<!DOCTYPE html>");
       out.println("<html>");
@@ -65,10 +65,10 @@ public class ScoreUpdateForm extends HttpServlet{
       // 웹 브라우저에게 1초 후에 list를 요청할 것을 알리는 명령을 심는다.
       out.println("<meta http-equiv='Refresh' content='1; list'>");
       
-      out.println("<title>성적 변경</title>");
+      out.println("<title>성적 등록</title>");
       out.println("</head>");
       out.println("<body>");
-      out.println("<p>변경 성공입니다</p>");
+      out.println("<p>등록 성공입니다</p>");
       out.println("</body>");
       out.println("</html>");
     } catch (Exception e){

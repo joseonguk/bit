@@ -2,6 +2,7 @@ package servlets.step01;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -10,11 +11,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/score/form")
-public class ScoreForm extends HttpServlet{
+//@WebServlet("/score/updateform")
+public class updateform01 extends HttpServlet{
   private static final long serialVersionUID = 1L;
   DbConnectionPool dbConnectionPool;
-  ScoreDao scoreDao;
+  ScoreDao01 scoreDao;
   
   @Override
   public void init(ServletConfig config) throws ServletException {
@@ -25,7 +26,7 @@ public class ScoreForm extends HttpServlet{
           "com.mysql.jdbc.Driver",
           "jdbc:mysql://localhost:3306/bitdb", 
           "bit", "1111");
-      scoreDao = new ScoreDao();
+      scoreDao = new ScoreDao01();
       scoreDao.setDbConnectionPool(dbConnectionPool);
     } catch(Exception e) { 
       e.printStackTrace();
@@ -40,37 +41,38 @@ public class ScoreForm extends HttpServlet{
   }
   
   @Override
-  protected void doPost(HttpServletRequest request, HttpServletResponse response)
+  protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     
-    request.setCharacterEncoding("UTF-8");
-    Score score = new Score();
-    
-    score.setName(request.getParameter("name"));
-    score.setKor(Integer.parseInt(request.getParameter("kor")));
-    score.setEng(Integer.parseInt(request.getParameter("eng")));
-    score.setMath(Integer.parseInt(request.getParameter("math")));
-    
-    try{
-      scoreDao.insert(score);
       
       response.setContentType("text/html; charset=UTF-8"); 
       PrintWriter out = response.getWriter();
       
-      out.println("<!DOCTYPE html>");
+      int no = Integer.parseInt(request.getParameter("no"));
+      
+      try{
+      Score score = scoreDao.getScore(no);
+      
+      
       out.println("<html>");
       out.println("<head>");
       out.println("<meta charset='UTF-8'>");
-      
-      // 웹 브라우저에게 1초 후에 list를 요청할 것을 알리는 명령을 심는다.
-      out.println("<meta http-equiv='Refresh' content='1; list'>");
-      
-      out.println("<title>성적 등록</title>");
+      out.println("<title>성적 변경</title>");
       out.println("</head>");
       out.println("<body>");
-      out.println("<p>등록 성공입니다</p>");
+      out.println("  <h1>성적 변경</h1>");
+      out.println("  <form action='/web01/score/updateform1' method='get'>");
+      out.println("  <input type='hidden' name='no' value="+ score.getNo() +"><br>");
+      out.println("  이름 : <input type='text' name='name' value="+ score.getName() +"><br>");
+      out.println("  국어 : <input type='text' name='kor' value="+ score.getKor() +"><br>");
+      out.println("  영어 : <input type='text' name='eng' value="+ score.getEng() +"><br>");
+      out.println("  수학 : <input type='text' name='math' value="+ score.getMath()+"><br>");
+      out.println("        <input type='submit' value='변경'>");
+      out.println("  </form>");
+
       out.println("</body>");
       out.println("</html>");
+      
     } catch (Exception e){
       e.printStackTrace();
     }
