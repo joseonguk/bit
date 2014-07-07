@@ -1,4 +1,4 @@
-package servlets.step01;
+package servlets.step01.my;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,6 +10,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import servlets.step01.DbConnectionPool;
+import servlets.step01.Score;
 
 // 컴파일 한 후 .class 파일에 주석 정보가 보관된다.
 // 왜? 그래야만 톰캣 서버가 클래스 파일로부터 URL 정보를 얻음

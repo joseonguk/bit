@@ -1,4 +1,4 @@
-package servlets.step01;
+package servlets.step01.my;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,6 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import servlets.step01.DbConnectionPool;
+import servlets.step01.Score;
 
 //@WebServlet("/score/form")
 public class ScoreForm01 extends HttpServlet{

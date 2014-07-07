@@ -1,8 +1,7 @@
-package servlets.step01;
+package servlets.step01.my;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -11,8 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//@WebServlet("/score/updateform")
-public class updateform01 extends HttpServlet{
+import servlets.step01.DbConnectionPool;
+import servlets.step01.Score;
+
+//@WebServlet("/score/updateform1")
+public class ScoreUpdateForm01 extends HttpServlet{
   private static final long serialVersionUID = 1L;
   DbConnectionPool dbConnectionPool;
   ScoreDao01 scoreDao;
@@ -39,40 +41,39 @@ public class updateform01 extends HttpServlet{
     
     dbConnectionPool.closeAll();
   }
-  
+
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     
+    Score score = new Score();
+    score.setNo(Integer.parseInt(request.getParameter("no")));
+    score.setName(request.getParameter("name"));
+    score.setKor(Integer.parseInt(request.getParameter("kor")));
+    score.setEng(Integer.parseInt(request.getParameter("eng")));
+    score.setMath(Integer.parseInt(request.getParameter("math")));
+    
+    try{
+      scoreDao.update(score);
       
       response.setContentType("text/html; charset=UTF-8"); 
       PrintWriter out = response.getWriter();
       
-      int no = Integer.parseInt(request.getParameter("no"));
       
-      try{
-      Score score = scoreDao.getScore(no);
-      
-      
+      out.println("<!DOCTYPE html>");
       out.println("<html>");
       out.println("<head>");
       out.println("<meta charset='UTF-8'>");
+      
+      // 웹 브라우저에게 1초 후에 list를 요청할 것을 알리는 명령을 심는다.
+      out.println("<meta http-equiv='Refresh' content='1; list'>");
+      
       out.println("<title>성적 변경</title>");
       out.println("</head>");
       out.println("<body>");
-      out.println("  <h1>성적 변경</h1>");
-      out.println("  <form action='/web01/score/updateform1' method='get'>");
-      out.println("  <input type='hidden' name='no' value="+ score.getNo() +"><br>");
-      out.println("  이름 : <input type='text' name='name' value="+ score.getName() +"><br>");
-      out.println("  국어 : <input type='text' name='kor' value="+ score.getKor() +"><br>");
-      out.println("  영어 : <input type='text' name='eng' value="+ score.getEng() +"><br>");
-      out.println("  수학 : <input type='text' name='math' value="+ score.getMath()+"><br>");
-      out.println("        <input type='submit' value='변경'>");
-      out.println("  </form>");
-
+      out.println("<p>변경 성공입니다</p>");
       out.println("</body>");
       out.println("</html>");
-      
     } catch (Exception e){
       e.printStackTrace();
     }

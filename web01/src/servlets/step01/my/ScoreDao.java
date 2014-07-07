@@ -7,7 +7,7 @@
  *   4) 반복하여 작업을 수행할 때 속도가 빠르다.
  *      => 이유: SQL문을 미리 만들어 놓고 값만 입력하여 실행하기 때문이다.
  */
-package servlets.step01;
+package servlets.step01.my;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
