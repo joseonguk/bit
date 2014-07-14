@@ -1,4 +1,4 @@
-package servlets.step02;
+package servlets.step03;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
@@ -25,9 +25,10 @@ public class ContextLoaderServlet extends HttpServlet{
     
     try {
       DbConnectionPool dbConnectionPool = new DbConnectionPool(
-          "com.mysql.jdbc.Driver",
-          "jdbc:mysql://localhost:3306/bitdb?useUnicode=true&characterEncoding=UTF-8",
-          "bit", "1111");
+        config.getInitParameter("driver"),
+        config.getInitParameter("url"),
+        config.getInitParameter("username"),
+        config.getInitParameter("password"));
       ScoreDao scoreDao = new ScoreDao();
       scoreDao.setDbConnectionPool(dbConnectionPool);
       

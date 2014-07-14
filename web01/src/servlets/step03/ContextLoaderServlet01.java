@@ -1,4 +1,4 @@
-package servlets.step02;
+package servlets.step03;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServlet;
  * - 모든 서블릿들이 공용으로 이용할 자원을 준비하는 역할을  수행한다.
  */
 
-public class ContextLoaderServlet extends HttpServlet{
+public class ContextLoaderServlet01 extends HttpServlet{
   private static final long serialVersionUID = 1L;
   
   @Override

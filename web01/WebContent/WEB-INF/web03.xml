@@ -2,20 +2,42 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>web01</display-name>
   
+  <context-param>
+    <param-name>driver</param-name>
+    <param-value>com.mysql.jdbc.Driver</param-value>
+  </context-param>
+  
+  <context-param>
+    <param-name>url</param-name>
+    <param-value>jdbc:mysql://localhost:3306/bitdb?useUnicode=true&amp;characterEncoding=UTF-8</param-value>
+  </context-param>
+  
+  <context-param>
+    <param-name>username</param-name>
+    <param-value>bit</param-value>
+  </context-param>
+  
+  <context-param>
+    <param-name>password</param-name>
+    <param-value>1111</param-value>
+  </context-param>
+  
   <!-- 리스너 선언 -->
   <listener>
-    <listener-class>servlets.step08.ContextLoaderListener</listener-class>
+    <listener-class>servlets.step05.ContextLoaderListener</listener-class>
   </listener>
+  
   
   <!-- 필터 클래스 선언 -->
   <filter>
     <filter-name>CharacterEncodingFilter</filter-name>
-    <filter-class>servlets.step08.CharacterEncodingFilter</filter-class>
+    <filter-class>servlets.step05.CharacterEncodingFilter</filter-class>
     
     <init-param>
       <param-name>charset</param-name>
       <param-value>UTF-8</param-value>
     </init-param>
+    
   </filter>
   
   <!-- 필터를 적용할 URL선언 -->
@@ -62,11 +84,5 @@
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
   
-  <resource-ref>
-      <res-ref-name>jdbc/bitdb</res-ref-name>
-      <res-type>javax.sql.DataSource</res-type>
-      <res-auth>Container</res-auth>
-      <!-- auth는 자원을 말함 -->
-  </resource-ref>
   
 </web-app>
