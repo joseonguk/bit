@@ -16,7 +16,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.log4j.Logger;
 
-// => DAO 및 SqlSessionFactory 객체도 SErvletContext에 보관한다.
+// => DAO 및 SqlSessionFactory 객체도 ServletContext에 보관한다.
 // => setter 메서드를 찾아서 보관한다.
 
 public class ContextLoaderListener implements ServletContextListener {
@@ -31,9 +31,9 @@ public class ContextLoaderListener implements ServletContextListener {
 
       prepareMyBatis();
 
-      String[] classnames = getClassNames();
+      String[] classnames = getClassNamesFromPackage();
       
-      prepareObjects(classnames);
+      prepareObjectsForClassWithComponentAnnotation(classnames);
       
       prepareDependancies();
           
@@ -52,7 +52,7 @@ public class ContextLoaderListener implements ServletContextListener {
   }
 
   // ClassName을 가져옴 
-  private String[] getClassNames() throws Exception{
+  private String[] getClassNamesFromPackage() throws Exception{
     logger.debug(ctx.getRealPath("/WEB-INF/classes/servlets/step08"));
     File classDir = new File(
         ctx.getRealPath("/WEB-INF/classes/servlets/step08"));
@@ -67,7 +67,8 @@ public class ContextLoaderListener implements ServletContextListener {
   }
 
   // 클래스 이름을 받아서 반복문 받아서 로딩하고 인스턴스 생성 애노테이션 뽑음
-  private void prepareObjects(String[] classnames) throws Exception{
+  private void prepareObjectsForClassWithComponentAnnotation(String[] classnames) 
+      throws Exception{
     Class<?> clazz = null;
     Object instance = null;
     Component compAnno = null;
@@ -114,7 +115,7 @@ public class ContextLoaderListener implements ServletContextListener {
         
         // 넘어온 메서드중 ServletContext에서 의존 객체를 찾아서 dependancy로 넘겨줌
         dependancy = findDependancyFromServletContext(
-            method.getParameters()[0].getType());
+            method.getParameterTypes()[0]);
         
         if (dependancy != null) { // setter 메서드의 의존 객체를 찾앗다면, setter 호출
           logger.debug(method.getName() + " 호 출");
