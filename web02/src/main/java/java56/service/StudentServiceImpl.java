@@ -1,7 +1,6 @@
 package java56.service;
 
 import java.util.HashMap;
-
 import java56.dao.MemberDao;
 import java56.dao.StudentDao;
 import java56.vo.Student;
@@ -16,21 +15,22 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class StudentServiceImpl implements StudentService {
+  @Autowired
+  MemberDao   memberDao;
   
   @Autowired
-  MemberDao memberDao;
+  StudentDao  studentDao;
   
-  @Autowired
-  StudentDao studentDao;
-  
-  @Transactional(propagation=Propagation.REQUIRED, rollbackFor={Throwable.class})
-  public void signup(Student student) throws Exception{
+  @Transactional(
+      propagation=Propagation.REQUIRED, 
+      rollbackFor={Throwable.class})
+  public void signup(Student student) throws Exception {
     memberDao.insert(student);
     studentDao.insert(student);
   }
-
+  
   @Override
-  public Student exist(String email, String password) throws Exception{
+  public Student exist(String email, String password) throws Exception {
     HashMap<String,Object> paramMap = new HashMap<String,Object>();
     paramMap.put("email", email);
     paramMap.put("password", password);
@@ -38,3 +38,15 @@ public class StudentServiceImpl implements StudentService {
     return studentDao.exist(paramMap);
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 타입 별명 사용하기 + result map 사용하기 -->
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
@@ -25,18 +24,29 @@
   </resultMap>
   
   <select id="exist" parameterType="map" resultMap="studentMap">
-    select s.mno, m.name, m.email, s.WORKING
-    from students s left outer join members m using(mno)
-    where m.email=#{email} and m.pwd=#{password}
+    select s.mno, m.name, m.email, s.working
+		from students s left outer join members m using(mno)
+		where m.email=#{email} and m.pwd=#{password}
   </select>
   
   <insert id="insert" parameterType="student">
     insert into students (
             mno, post_no, bas_addr, det_addr, 
             school, grade, major, working, company, comp_code)
-    values (#{no}, #{postNo}, #{baseAddress}, #{detailAddress},
+    values (
+            #{no}, #{postNo}, #{baseAddress}, #{detailAddress},
             #{school}, #{grade}, #{major}, #{working}, #{company}, #{companyNo})
   </insert>
   
 </mapper>
+
+
+
+
+
+
+
+
+
+
 

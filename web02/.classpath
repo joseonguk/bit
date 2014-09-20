@@ -67,7 +67,7 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/SeongUk/.gradle/caches/modules-2/files-2.1/junit/junit/4.11/28e0ad201304e4a4abf999ca0570b7cffc352c3c/junit-4.11-sources.jar" kind="lib" path="C:/Users/SeongUk/.gradle/caches/modules-2/files-2.1/junit/junit/4.11/4e031bb61df09069aeb2bffb4019e7a5034a4ee0/junit-4.11.jar" exported="true">
+	<classpathentry sourcepath="C:/Users/SeongUk/.gradle/caches/modules-2/files-2.1/junit/junit/4.12-beta-1/6b1bbf7aedba23e3e43cb7afe0e9842c364065bd/junit-4.12-beta-1-sources.jar" kind="lib" path="C:/Users/SeongUk/.gradle/caches/modules-2/files-2.1/junit/junit/4.12-beta-1/f516376d8dbcaf37ab11975cd7807e5e1782a847/junit-4.12-beta-1.jar" exported="true">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>

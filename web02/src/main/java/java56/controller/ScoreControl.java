@@ -46,7 +46,8 @@ public class ScoreControl {
       mv.addObject("scores", scoreDao.list(pageNo, pageSize, order));
       
     } else if (columnName != null) {
-      mv.addObject("scores", scoreDao.list(pageNo, pageSize, columnName, orderType));
+      mv.addObject("scores", 
+          scoreDao.list(pageNo, pageSize, columnName, orderType));
       
     } else {
       mv.addObject("scores", scoreDao.list(pageNo, pageSize, null));
@@ -72,13 +73,13 @@ public class ScoreControl {
     return "redirect:list.do";
   }
   
-  @RequestMapping(value="/delete" ,method=RequestMethod.GET)
+  @RequestMapping(value="/delete", method=RequestMethod.GET)
   public String delete(int no)
       throws Exception {
     scoreDao.delete(no);
     return "redirect:list.do";
   }
-
+  
   @RequestMapping(value="/update", method=RequestMethod.GET)
   public String detail(int no, Model model)
       throws Exception {
@@ -93,3 +94,10 @@ public class ScoreControl {
     return "redirect:list.do";
   }
 }
+
+
+
+
+
+
+

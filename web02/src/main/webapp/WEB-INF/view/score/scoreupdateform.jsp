@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +16,7 @@
 영어: <input type="text" name="eng" value='${score.eng}'><br>
 수학 : <input type="text" name="math" value='${score.math}'><br>
 시험일 : <input type="text" name="execDate" 
-              value='<fmt:formatDate value="${score.execDate}" pattern="yyyy-MM-dd"/>'><br>
+          value='<fmt:formatDate value="${score.execDate}" pattern="yyyy-MM-dd"/>'><br>
 <input type="submit" value="변경">
 </form>
 

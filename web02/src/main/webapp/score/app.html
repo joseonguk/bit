@@ -13,29 +13,35 @@
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script src="../js/jquery-ui.js"></script>
+<script type="text/javascript" src="../js/checkLogin.js"></script>
 <script type="text/javascript" src="app.js"></script>
 
 <script>
 /*
 window.onload = function() {
-    $( "#accordion" ).accordion();
-  };
-*/
+	$("#accordion").accordion();
+};*/
+
 /*
-$(document).ready(function() {  // DOM 크리를 완성한 후 화면 출력 전에 호출될 함수 등록
-  $( "#accordion" ).accordion();
+$(document).ready(function(){ // DOM 트리를 완성한 후 화면 출력 전에 호출될 함수 등록
+	$("#accordion").accordion();
 });
 */
 
-$(function() { 
-  //$( "#accordion" ).accordion();
-  $('#execDate').datepicker({dateFormat: "yy-mm-dd"});
-  }); // DOM 트리를 완성한 후 호출될 함수 등록
-</script>
+$(function(){
+	//$("#accordion").accordion();
+	$("#execDate").datepicker({dateFormat: "yy-mm-dd" });
+}); // DOM 트리를 완성한 후 호출될 함수 등록
 
+</script>
 </head>
 <body>
 <div id="main" class="container">
+<div id="loginInfo">
+  <span id="userName"></span>,
+  (<span id="userEmail"></span>)
+  <a id="logout" href="#">로그아웃</a>
+</div>
 <div id="accordion">
 <h3>성적목록</h3>
 <div>
@@ -111,7 +117,20 @@ $(function() {
 </form>
 </div>
 
-</div>    <!-- #accordion -->
-</div>    <!-- #main -->
+</div> <!-- #accordion -->
+</div> <!-- #main -->
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+

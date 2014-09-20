@@ -1,15 +1,15 @@
 package java56.vo;
 
-public class Student extends Member{
-  protected String postNo;
-  protected String baseAddress;
-  protected String detailAddress;
-  protected String school;
-  protected String grade;
-  protected String major;
-  protected char   working;
-  protected String companyNo;
-  protected String company;
+public class Student extends Member {
+  protected String  postNo;
+  protected String  baseAddress;
+  protected String  detailAddress;
+  protected String  school;
+  protected String  grade;
+  protected String  major;
+  protected char    working;
+  protected String  companyNo;
+  protected String  company;
   
   public String getPostNo() {
     return postNo;
@@ -65,5 +65,4 @@ public class Student extends Member{
   public void setCompany(String company) {
     this.company = company;
   }
-  
 }

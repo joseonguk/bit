@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 타입 별명 사용하기 + result map 사용하기 -->
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
@@ -16,12 +15,10 @@
   </resultMap>
   
   <insert id="insert" parameterType="member"
-        useGeneratedKeys="true" keyColumn="mno" keyProperty="no">
+      useGeneratedKeys="true" keyColumn="mno" keyProperty="no">
     insert into members (name, email, tel, pwd, photo_path)
     values (#{name},#{email},#{tel},#{password},#{photoPath})
   </insert>
-  
-  
 </mapper>
 
 

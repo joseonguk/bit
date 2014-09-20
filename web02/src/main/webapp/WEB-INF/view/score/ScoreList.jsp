@@ -35,7 +35,7 @@ table td {
 <body>
 <div>
 <c:if test="${not empty sessionScope.loginUser}">
-${loginUser.name }(${loginUser.email })
+${loginUser.name}(${loginUser.email})
 </c:if>
 </div>
 <h1>성적 관리</h1>
