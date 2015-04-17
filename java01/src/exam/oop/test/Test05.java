@@ -9,7 +9,7 @@
 // 스택 영역
 // - 메서드 호출 시 로컬 변수가 준비된다.
 // - 메서드 호출이 끝나면 로컬 변수는 제거된다.
-package exam.oop;
+package exam.oop.test;
 
 public class Test05 {
 	public static void main(String[] args) {

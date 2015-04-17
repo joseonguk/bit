@@ -1,7 +1,9 @@
 /** 생성자를 여러 개 정의하기
  * 1)
  */
-package exam.oop;
+package exam.oop.test;
+
+import exam.oop.Score3;
 
 public class Test03 {
 

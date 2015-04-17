@@ -12,7 +12,7 @@
 // - 가비지 컬렉터가 관리하는 메모리
 // - 인스턴스는 애플리케이션 종료 때까지 유지됨
 // - 개발자가 임의적으로 인스턴스를 제거할 수 없다
-package exam.oop;
+package exam.oop.test;
 
 public class Test05_ex1 {
 	

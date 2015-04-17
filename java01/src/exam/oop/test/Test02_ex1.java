@@ -4,7 +4,9 @@
  * - Garbage Collector : 가비지 수집기
  * 		1) idle time, 2) 메모리 부족
  */
-package exam.oop;
+package exam.oop.test;
+
+import exam.oop.test_oop.Address;
 
 public class Test02_ex1 {
 	public static void main(String[] args) {

@@ -6,7 +6,9 @@
  * - 문법: 리턴타입 없다. 함수 이름이 클래스 이름과 같다.
  * 	 클래스명() {...}
  */
-package exam.oop;
+package exam.oop.test;
+
+import exam.oop.test_oop.Score2;
 
 public class Test02 {
 	public static void main(String[] args) {

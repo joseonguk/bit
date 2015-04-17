@@ -8,7 +8,7 @@
  */
 
 
-package exam.oop;
+package exam.oop.test;
 
 public class Test05_ex3 {
 	

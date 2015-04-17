@@ -14,7 +14,7 @@
 //				내부적으로 String 인스턴스를 상수 풀에 생성한다.
 // - String#intern() : 상수 풀에 스트링 인스턴스 생성
 
-package exam.oop;
+package exam.oop.test;
 
 public class Test05_ex2 {
 	

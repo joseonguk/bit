@@ -2,7 +2,9 @@
  * 인스턴스 변수와 생성자의 용도
  */
 
-package exam.oop;
+package exam.oop.test;
+
+import exam.oop.test_oop.Car;
 
 public class Test06_ex2 {
 	public static void main(String[] args) {

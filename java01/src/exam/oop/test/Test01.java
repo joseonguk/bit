@@ -2,7 +2,7 @@
 // 1) 새로운 데이터 타입 정의
 // 2) 함수를 묶는 용도
 
-package exam.oop;
+package exam.oop.test;
 
 import java.util.Scanner;
 

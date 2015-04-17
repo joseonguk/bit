@@ -1,14 +1,14 @@
-package exam.oop;
+package exam.oop.test_oop;
 
 public class Score2 {
 	
 	//Score가 준비하는 메모리를 선언
-	String name;
-	int kor;
-	int eng;
-	int math;
-	int total;
-	float average;
+	public String name;
+	public int kor;
+	public int eng;
+	public int math;
+	public int total;
+	public float average;
 	
 	public Score2(){
 		

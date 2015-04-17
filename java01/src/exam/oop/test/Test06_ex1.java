@@ -1,4 +1,4 @@
-package exam.oop;
+package exam.oop.test;
 
 class A {
 	static int value = 100;

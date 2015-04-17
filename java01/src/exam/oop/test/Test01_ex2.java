@@ -26,9 +26,11 @@
  * - 예4. 리턴 있음. 파라미터 있음
  * 	 int plus(int a, int b) { return a+b; }
  */
-package exam.oop;
+package exam.oop.test;
 
 import java.util.Scanner;
+
+import exam.oop.test_oop.Address;
 
 public class Test01_ex2 {
 

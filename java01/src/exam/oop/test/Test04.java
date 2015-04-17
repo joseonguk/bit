@@ -1,7 +1,7 @@
 /** 변수, 매서드 용어 정리
  */
 
-package exam.oop;
+package exam.oop.test;
 
 // 클래스
 public class Test04 {

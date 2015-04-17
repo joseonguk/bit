@@ -9,7 +9,7 @@
  * 	 4) 로딩된 바이트 코드에서  main() 메서드를 찾아 호출한다.
  */
 
-package exam.oop;
+package exam.oop.test;
 
 public class Test06 {
 	

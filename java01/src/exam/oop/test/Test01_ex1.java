@@ -2,9 +2,11 @@
 // 이름, 직위, 전화번호, 이메일, 회사 정보를 입력 받고 출력하는 프로그램을 짜시오
 // 단, 새 데이터 타입을 정의해서 값을 입력 받으시오
 
-package exam.oop;
+package exam.oop.test;
 
 import java.util.Scanner;
+
+import exam.oop.test_oop.Address;
 
 // 1. 새 데이터 타입 정의 : Address
 /*class Address {
